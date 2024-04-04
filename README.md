@@ -1,3 +1,4 @@
+My live website can be seen on https://blogify-production-4127.up.railway.app/
 # Blogify
 
 Blogify is a simple blogging platform built using Node.js, Express.js, MongoDB, and EJS.
