@@ -9,22 +9,25 @@
     <div class="container mt-3">
     <form action="/blog" method="post" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="coverImage" class="form-label">Cover Image</label>
+            <label for="coverImage" class="form-label text-white mx-1" 
+                                    style="font-size: large; font-weight: bold;">Cover Image</label>
             <input type="file" class="form-control" id="coverImage" name="coverImage" aria-describedby="coverImage"/>
         </div>
         <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
+            <label for="title" class="form-label text-white mb-2 mx-1"
+                            style="font-size: large; font-weight: bold;">Title</label>
             <input type="text" class="form-control" id="title" name="title" aria-describedby="title"/>
         </div>
         <div class="mb-3">
-            <label for="body">Body</label>
+            <label for="body" class="text-white mb-2 mx-1" style="font-size: large; font-weight: bold;">Body</label>
             <textarea name="body" class="form-control" id="body"></textarea>
         </div>
         <div class="mb-3">
-            <button class="btn btn-dark">Submit</button>
+            <button class="btn btn-success">Submit</button>
         </div>
     </form>
     </div>
     <%- include('./partials/script') %>
+    <%- include('./partials/footer')%>
 </body>
 </html>
