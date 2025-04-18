@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Blog</title>
+    <%- include('./partials/style') %>
+</head>
+<body>
+    <div style="padding-bottom: 20%;">
+    <%- include('./partials/nav') %>
+    <div style="padding: 2%;border: 1%; background-color:#4B4376; margin: 5%;">
+        <div class="container text-white mt-2 " style="padding: 1rem; border: 1rem; border-color: aliceblue;" >
+            <img  src="<%= blog.coverImageURL %>" style="margin-left: 150px; height: 450px;border-color: black; border-radius: 1cap;"/>
+            <div class="container mt-1 text-white flex" style="font-weight: bold; margin-left: 1rem;">
+            
+            <div>    <h4 style="margin-left: 8rem;"><%= blog.title %></h4>
+<!--  -->
+                <h6 style="margin-left: 12rem;"> Created By:- <img src="<%= blog.createdBy.profileImage %>" width="18px"/>
+                                                                <%= blog.createdBy.fullName %>
+            </h6>
+        </div>
+            </div>
+            <div class=" container " style="width: 80%; border-radius: 1%; height: 90%; margin-left: 11%;">
+                    <!-- <p style="background-color:rgb(0, 0, 13);color: white; margin-left: 10%;"> -->
+                    <pre  style="white-space: pre-wrap; 
+                    word-break: break-word;"><%= blog.body %></pre><!-- </p> -->
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="container mt-3 text-white">
+        <h1>Comments (<%= comments.length %>)</h1>
+        <% if (locals.user) { %>
+            <form action="/blog/comment/<%= blog._id %>" method="post">
+                <div class="mb-3">
+                  <input type="text" name="content" 
+                  class="form-control" placeholder="Enter your comment"/>
+                  <div class="mt-3">
+                  <button class="btn btn-sm btn-success" type="submit" style="padding: 0.5rem; width: 10rem; font-weight: bold;">Add</button>
+                  </div>
+                </div>
+                </form>
+        <% } %>
+        <div class="mt-3">
+            <% comments.forEach(comment => { %>
+                <div>
+                <img src="<%= comment.createdBy.profileImage %>" width="30px"/> <%= comment.createdBy.fullName %>
+                <textarea class="form-control mt-3 mb-3" id="floatingTextarea" style="height: 100px"  ><%= comment.content %></textarea>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    <%- include('./partials/script') %>
+    <%- include('./partials/footer')%>
+</div>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Blog</title>
+    <%- include('./partials/style') %>
+</head>
+<body>
+    <div style="padding-bottom: 20%;">
+        <%- include('./partials/nav') %>
+        
+        <div class="container">
+            <h1><%= blog.title %></h1>
+            <img src="<%= blog.coverImageURL %>" width="40%" />
+            <pre class="mt-3"><%= blog.body %></pre>
+        </div>
+
+        <div class="container mt-4 text-white">
+            <img src="<%= blog.createdBy.profileImage %>" width="20px" class="rounded"/> 
+            <%= blog.createdBy.fullName %>
+        </div>
+
+        <div class="container mt-3 text-white">
+            <h1>Comments (<%= comments.length %>)</h1>
+
+            <% if (locals.user) { %>
+                <form action="/blog/comment/<%= blog._id %>" method="post" onsubmit="return validateComment()">
+                    <div class="mb-3">
+                        <input type="text" id="commentInput" name="content" 
+                               class="form-control" placeholder="Enter your comment"/>
+                        <div class="mt-1">
+                            <button class="btn btn-sm btn-success" type="submit">Add</button>
+                        </div>
+                    </div>
+                </form>
+            <% } %>
+
+            <div class="mt-3">
+                <% comments.forEach(comment => { %>
+                    <div>
+                        <img src="<%= comment.createdBy.profileImage %>" width="30px"/> 
+                        <%= comment.createdBy.fullName %>
+                        <textarea class="form-control mt-3 mb-3" id="floatingTextarea" style="height: 100px;">
+                            <%= comment.content %>
+                        </textarea>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+
+        <%- include('./partials/script') %>
+        <%- include('./partials/footer') %>
+    </div>
+
+    <script>
+        function validateComment() {
+            let comment = document.getElementById("commentInput").value.trim();
+            if (comment === "") {
+                alert("Comment cannot be empty!");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
+
+</body>
+</html>
+ -->

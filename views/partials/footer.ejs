@@ -1,0 +1,37 @@
+<footer class="footer" style="position: fixed;">
+    <div class="footer-container" >
+        <p>&copy; <%= new Date().getFullYear() %> Your Project Name. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-of-service">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        background-color: #00000d;
+        color: white; 
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        font-size: 14px;
+        font-family: 'Arial', sans-serif;
+    }
+    .footer-container {
+        max-width: 1200px;
+        margin: auto;
+    }
+    .footer-links a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    .footer-links a:hover {
+        color: white; /* Neon Yellow */
+    }
+</style>
