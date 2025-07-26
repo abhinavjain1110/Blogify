@@ -25,7 +25,7 @@
                   <h5 class="card-title"> <%= blog.title %></h5>
                   <a href="/blog/<%= blog._id %>" class="btn btn-success">View</a>
                   <% if (locals.user) { %>
-                    <a href="blog/edit/<%= blog._id %>" class="btn btn-success">Edit Blog</a>
+                    <a href="/blog/edit/<%= blog._id %>" class="btn btn-success">Edit Blog</a>
                 <% } %>
                 </div>
               </div>

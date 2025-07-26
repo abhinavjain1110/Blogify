@@ -115,7 +115,7 @@ router.post("/", upload.single("coverImage"), async (req, res) => {
 
 
 // Route to render the 'Edit Blog' page with pre-filled blog data
-router.get('blog/edit/:blogId', async (req, res) => {
+router.get('/edit/:blogId', async (req, res) => {
     try {
         const blog = await Blog.findById(req.params.blogId);
         if (!blog) {
@@ -128,7 +128,7 @@ router.get('blog/edit/:blogId', async (req, res) => {
     }
 });
 
-router.post("blog/edit/:blogId", upload.single("coverImage"), async (req, res) => {
+router.post("/edit/:blogId", upload.single("coverImage"), async (req, res) => {
   const { title, body } = req.body;
   const blog = await Blog.findById(req.params.blogId);
 
