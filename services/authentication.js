@@ -7,7 +7,8 @@ function createTokenForUser(user){
         _id:user._id,
         email:user.email,
         profileImageURL:user.profileImageURL,
-        role:user.role
+        role:user.role,
+        name:user.fullName
     };
     const token=JWT.sign(payload,secret);
     return token;
